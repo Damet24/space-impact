@@ -6,7 +6,7 @@ class projectile {
     }
 
     move(){
-        this.x += 1*direction;
+        this.x += 1*this.direction;
     }
 
 }
