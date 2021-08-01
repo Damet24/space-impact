@@ -1,4 +1,4 @@
-class projectile {
+class Projectile {
     constructor(x,y, direction){
         this.x = x;
         this.y = y;
@@ -6,9 +6,13 @@ class projectile {
     }
 
     move(){
-        this.x += 1*this.direction;
+        this.x += 10*this.direction;
+    }
+
+    getSprite(){
+        return "bullet"
     }
 
 }
 
-export default projectile;
+export default Projectile;

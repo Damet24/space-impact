@@ -1,17 +1,22 @@
-import projectile from "./projectile.js";
+import Projectile from "./Projectile.js";
+import Collisionable from "../Collisionable.js";
 
-class player {
-    constructor(x,y){
-        this.x = x;
-        this.y = y;
-        this.sprite = "./assets/Ship.png"
+class Player extends Collisionable{
+    constructor(x,y,width,height, keymap = {"a": false, "d": false, "w": false, "s": false}){
+        super(x,y,width,height);
         this.lives = 3;
         this.points = 0;
+        this.keymap = keymap;
     }
 
     move(dx,dy){
         this.x += dx;
         this.y += dy;
+    }
+
+    moveTo(x,y){
+        this.x = x;
+        this.y = y;
     }
 
     getPoints(){
@@ -27,8 +32,12 @@ class player {
     }
 
     shoot(){
-        return new projectile(x,y,1);
+        return new Projectile(x,y,1);
+    }
+
+    getSprite(){
+        return "ship"
     }
 }
 
-export default player;
+export default Player;
